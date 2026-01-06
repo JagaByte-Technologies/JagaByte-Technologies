@@ -1,4 +1,4 @@
-* {
+  * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -10,9 +10,7 @@
       color: #131414;
       overflow-x: hidden;
     }
-
-    /* Header & Navigation */
-    header {
+ header {
       position: fixed;
       top: 0;
       width: 100%;
@@ -35,11 +33,11 @@
       align-items: center;
       gap: 5px;
       font-size: clamp(20px, 3vw, 28px);
-    }
+    } */
 
-    /* Typing Animation Text */
-    .typing-text {
-      font-size: clamp(14px, 1.8vw, 34px);
+   /* Typing Animation Text */
+    /* .typing-text {
+      font-size: clamp(14px, 1.8vw, 38px);
       font-weight: 600;
       color: #0066cc;
       margin-bottom: 10px;
@@ -65,7 +63,7 @@
       75% {
         opacity: 0;
       }
-    }
+    } */
 
 
     .branding h1 {
@@ -215,6 +213,30 @@
       height: auto;
       border-radius: 20px;
     }
+    .whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 56px;
+  height: 56px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float img {
+  width: 28px;
+  height: 28px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
 
     /* About Section */
     #about {
@@ -438,12 +460,20 @@
     }
 
     .portfolio-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  align-items: start;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
       max-width: 1200px;
       margin: 0 auto 40px;
     }
+    .portfolio-item {
+  max-width: 360px;
+  width: 100%;
+}
+         
+
 
     /* .portfolio-item {
       background: white;
@@ -465,7 +495,6 @@
       overflow: hidden;
       cursor: pointer;
     }
-
     /* Image wrapper */
     .portfolio-img {
       width: 100%;
@@ -481,6 +510,10 @@
     }
 
     /* Overlay */
+    .portfolio-item.hide {
+  display: none;
+}
+
     .portfolio-overlay {
       position: absolute;
       inset: 0;
@@ -495,6 +528,10 @@
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.4s ease;
+    }
+    .csitpaperpro_button{
+        text-decoration: none;
+        color: inherit;
     }
 
     /* Text */
@@ -562,18 +599,20 @@
       border-radius: 15px;
       font-size: 14px;
     }
+     .playstore-link {
+      display: inline-block;
+      margin-top: 10px;
+      transition: transform 0.3s ease;
+    }
 
-    .playstore_button{
-      /* background: white;
-      color: #0066cc; */
-      border: none;
-      /* padding: 10px 20px; */
-      height: 20px;
-      width: 60px;
-      /* border-radius: 6px; */
-      /* font-weight: 600; */
+    .playstore-link img {
+      height: 45px;
+      width: auto;
       cursor: pointer;
-      transition: transform 0.3s;
+    }
+
+    .playstore-link:hover {
+      transform: translateY(-3px) scale(1.03);
     }
 
     /* .google-play-badge {
@@ -822,14 +861,17 @@
     }
 
     .submit-btn {
+        position: relative;
+        top: 20px;
       background: #0066cc;
       color: white;
       border: none;
-      padding: 15px 40px;
+      padding: 15px 50px;
       border-radius: 8px;
       font-size: 16px;
       cursor: pointer;
       width: 100%;
+
       transition: background 0.3s;
     }
 
@@ -883,6 +925,15 @@
     }
 
     .footer-section h3 {
+        padding: 10px 65px;
+      color: white;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+    .company-text {
+        padding: 10px 60px;
+        position: relative;
+        left: -10px;
       color: white;
       margin-bottom: 20px;
       font-size: 20px;
@@ -894,6 +945,7 @@
 
     .footer-links li {
       margin-bottom: 12px;
+      padding: 0px 60px;
     }
 
     .footer-links a {

@@ -4,51 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="styles.css">
   <title>JagaByte Technologies</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">   
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: white;
-      color: #131414;
-      overflow-x: hidden;
-    }
-
-    /* Header & Navigation */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: white;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .main-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 5%;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .branding {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: clamp(20px, 3vw, 28px);
-    }
-
-    /* Typing Animation Text */
     .typing-text {
-      font-size: clamp(14px, 1.8vw, 34px);
+      font-size: clamp(14px, 1.8vw, 38px);
       font-weight: 600;
       color: #0066cc;
       margin-bottom: 10px;
@@ -75,946 +36,8 @@
         opacity: 0;
       }
     }
-
-
-    .branding h1 {
-      margin: 0;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: clamp(15px, 2vw, 30px);
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: black;
-      font-size: clamp(14px, 1.5vw, 18px);
-      position: relative;
-      padding: 5px 0;
-      transition: color 0.3s;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: -3px;
-      transform: translateX(-50%);
-      width: 0%;
-      height: 2px;
-      background-color: #0066cc;
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-links a:hover {
-      color: #0066cc;
-    }
-
-    .touch button {
-      background-color: #0066cc;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: clamp(14px, 1.5vw, 16px);
-      transition: background-color 0.3s, transform 0.2s;
-    }
-
-    .touch button:hover {
-      background-color: #0052a3;
-      transform: translateY(-2px);
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 4px;
-    }
-
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background-color: black;
-      transition: 0.3s;
-    }
-
-    /* Hero Section */
-    #home {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 120px 5% 60px;
-      max-width: 1400px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-    }
-
-    .hero-content {
-      flex: 1;
-      min-width: 300px;
-      padding-right: 40px;
-    }
-
-    .hero-content h1 {
-      font-size: clamp(32px, 5vw, 56px);
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
-
-    .hero-content p {
-      font-size: clamp(16px, 2vw, 22px);
-      color: #666;
-      margin-bottom: 30px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background-color: #0066cc;
-      color: white;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: all 0.3s;
-    }
-
-    .btn-primary:hover {
-      background-color: #0052a3;
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background-color: #e8f0f8;
-      color: #0066cc;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: all 0.3s;
-    }
-
-    .btn-secondary:hover {
-      background-color: #d1e3f3;
-    }
-
-    .hero-image {
-      flex: 1;
-      min-width: 300px;
-      text-align: center;
-    }
-
-    .hero-image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 20px;
-    }
-
-    /* About Section */
-    #about {
-      padding: 80px 5%;
-      background-color: #f9fafb;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: clamp(32px, 4vw, 48px);
-      margin-bottom: 15px;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      font-size: clamp(16px, 2vw, 20px);
-      color: #666;
-      margin-bottom: 60px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .about-content {
-      display: flex;
-      gap: 40px;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto 60px;
-      flex-wrap: wrap;
-    }
-
-    .about-image {
-      flex: 0.4;
-      min-width: 300px;
-    }
-
-    .about-image img {
-      width: 100%;
-    }
-
-    .about-text {
-      flex: 1;
-      min-width: 300px;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 60px auto 0;
-    }
-
-    .feature-item {
-      display: flex;
-      gap: 15px;
-      align-items: flex-start;
-    }
-
-    .feature-item svg {
-      width: 40px;
-      height: 40px;
-      color: #0066cc;
-      flex-shrink: 0;
-    }
-
-    .feature-item h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .feature-item p {
-      color: #666;
-      line-height: 1.6;
-    }
-
-    /* Stats Section */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 60px auto;
-    }
-
-    .stat-box {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s;
-    }
-
-    .stat-box:hover {
-      transform: translateY(-5px);
-    }
-
-    .stat-box h2 {
-      color: #0066cc;
-      font-size: clamp(32px, 4vw, 48px);
-      margin-bottom: 10px;
-    }
-
-    .stat-box p {
-      color: #666;
-      font-size: 16px;
-    }
-
-    /* Services Section */
-    #service {
-      padding: 80px 5%;
-      background-color: white;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto 60px;
-    }
-
-    .service-card {
-      background: white;
-      padding: 40px 30px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s, box-shadow 0.3s;
-      border: 1px solid #f0f0f0;
-    }
-
-    .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-    }
-
-    .service-card svg {
-      width: 50px;
-      height: 50px;
-      color: #0066cc;
-      margin-bottom: 20px;
-    }
-
-    .service-card h3 {
-      font-size: 22px;
-      margin-bottom: 15px;
-    }
-
-    .service-card p {
-      color: #666;
-      line-height: 1.7;
-    }
-
-    .cta-box {
-      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
-      padding: 60px 40px;
-      border-radius: 20px;
-      text-align: center;
-      color: white;
-      max-width: 1000px;
-      margin: 60px auto 0;
-    }
-
-    .cta-box h2 {
-      font-size: clamp(28px, 4vw, 42px);
-      margin-bottom: 15px;
-    }
-
-    .cta-box p {
-      font-size: clamp(16px, 2vw, 20px);
-      margin-bottom: 30px;
-      opacity: 0.95;
-    }
-
-    .cta-box button {
-      background: white;
-      color: #0066cc;
-      padding: 15px 40px;
-      border: none;
-      border-radius: 5px;
-      font-size: 18px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-
-    .cta-box button:hover {
-      transform: scale(1.05);
-    }
-
-    /* Portfolio Section */
-    #portfolio {
-      padding: 80px 5%;
-      background-color: #f9fafb;
-    }
-
-    .portfolio-filters {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 50px;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      background: #e8f0f8;
-      border: none;
-      padding: 10px 25px;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-size: 15px;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: #0066cc;
-      color: white;
-    }
-
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto 40px;
-    }
-
-    /* .portfolio-item {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s;
-    }
-
-    .portfolio-item:hover {
-      transform: translateY(-10px);
-    } */
-
-    /* ===== Portfolio Hover Effect ===== */
-
-    .portfolio-item {
-      position: relative;
-      border-radius: 15px;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    /* Image wrapper */
-    .portfolio-img {
-      width: 100%;
-      height: 250px;
-    }
-
-    .portfolio-img svg,
-    .portfolio-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    /* Overlay */
-    .portfolio-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top,
-          rgba(0, 0, 0, 0.85),
-          rgba(0, 0, 0, 0.2));
-      color: white;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.4s ease;
-    }
-
-    /* Text */
-    .portfolio-overlay h3 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    .portfolio-overlay p {
-      font-size: 15px;
-      line-height: 1.6;
-      margin-bottom: 15px;
-      opacity: 0.9;
-    }
-
-    /* Button */
-    .portfolio-overlay button {
-      width: fit-content;
-      background: white;
-      color: #0066cc;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-
-    .portfolio-overlay button:hover {
-      transform: translateY(-2px);
-    }
-
-    /* Hover Effects */
-    .portfolio-item:hover .portfolio-overlay {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .portfolio-item:hover .portfolio-img svg,
-    .portfolio-item:hover .portfolio-img img {
-      transform: scale(1.1);
-    }
-
-
-    .portfolio-item img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-    }
-
-    .portfolio-info {
-      padding: 25px;
-    }
-
-    .portfolio-info h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .portfolio-tag {
-      display: inline-block;
-      background: #e8f0f8;
-      color: #0066cc;
-      padding: 5px 15px;
-      border-radius: 15px;
-      font-size: 14px;
-    }
-
-    .playstore_button{
-      /* background: white;
-      color: #0066cc; */
-      border: none;
-      /* padding: 10px 20px; */
-      height: 20px;
-      width: 60px;
-      /* border-radius: 6px; */
-      /* font-weight: 600; */
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-
-    /* .google-play-badge {
-      margin-top: 15px;
-      width: 130px;
-      cursor: pointer;
-      transition: transform 0.3s;
-    } */
-
-    /* Team Section */
-    #team {
-      padding: 80px 5%;
-      background-color: white;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      max-width: 1000px;
-      margin: 0 auto 60px;
-    }
-
-    .team-card {
-      background: white;
-      padding: 40px 30px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s;
-    }
-
-    .team-card:hover {
-      transform: translateY(-10px);
-    }
-
-    .team-card img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-      object-fit: cover;
-    }
-
-    .team-card h3 {
-      font-size: 22px;
-      margin-bottom: 8px;
-    }
-
-    .team-card h5 {
-      color: #0066cc;
-      margin-bottom: 20px;
-      font-weight: 500;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .social-icons a {
-      color: #666;
-      font-size: 20px;
-      transition: color 0.3s;
-    }
-
-    .social-icons a:hover {
-      color: #0066cc;
-    }
-
-    /* Testimonials */
-    #testimonials {
-      padding: 80px 5%;
-      background-color: #f9fafb;
-    }
-
-    .testimonial-container {
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .testimonial-card {
-      background: white;
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-      display: none;
-      opacity: 0;
-      transition: opacity 0.5s;
-    }
-
-    .testimonial-card.active {
-      display: block;
-      opacity: 1;
-    }
-
-    .testimonial-header {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 20px;
-    }
-
-    .testimonial-card img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .testimonial-info h3 {
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
-
-    .testimonial-info p {
-      color: #0066cc;
-    }
-
-    .testimonial-text {
-      color: #666;
-      line-height: 1.8;
-      font-size: 16px;
-    }
-
-    .testimonial-dots {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 30px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #ddd;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .dot.active {
-      background: #0066cc;
-      width: 30px;
-      border-radius: 5px;
-    }
-
-    /* Contact Section */
-    #contact {
-      padding: 80px 5%;
-      background-color: white;
-    }
-
-    .contact-wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .contact-info {
-      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
-      padding: 40px;
-      border-radius: 15px;
-      color: white;
-    }
-
-    .contact-info h2 {
-      margin-bottom: 30px;
-      font-size: 28px;
-    }
-
-    .contact-item {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 30px;
-      align-items: flex-start;
-    }
-
-    .contact-item svg {
-      width: 30px;
-      height: 30px;
-      flex-shrink: 0;
-    }
-
-    .contact-item-text h4 {
-      margin-bottom: 5px;
-      font-size: 18px;
-    }
-
-    .contact-item-text p {
-      opacity: 0.9;
-    }
-
-    .contact-form {
-      background: white;
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    .contact-form h2 {
-      margin-bottom: 30px;
-      font-size: 28px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-bottom: 20px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .form-group label {
-      margin-bottom: 8px;
-      color: #333;
-      font-weight: 500;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      padding: 12px;
-      border: 1.5px solid #e0e0e0;
-      border-radius: 8px;
-      font-size: 15px;
-      transition: border 0.3s;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: #0066cc;
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .submit-btn {
-      background: #0066cc;
-      color: white;
-      border: none;
-      padding: 15px 40px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      width: 100%;
-      transition: background 0.3s;
-    }
-
-    .submit-btn:hover {
-      background: #0052a3;
-    }
-
-    /* Footer */
-    footer {
-      background: #1a1a1a;
-      color: #999;
-      padding: 60px 5% 30px;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-
-    .footer-brand h2 {
-      color: white;
-      margin-bottom: 15px;
-      display: flex;
-      gap: 5px;
-      font-size: 28px;
-    }
-
-    .footer-brand p {
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .footer-contact {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    .footer-contact svg {
-      width: 20px;
-      height: 20px;
-      color: #0066cc;
-    }
-
-    .footer-section h3 {
-      color: white;
-      margin-bottom: 20px;
-      font-size: 20px;
-    }
-
-    .footer-links {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 12px;
-    }
-
-    .footer-links a {
-      color: #999;
-      text-decoration: none;
-      transition: color 0.3s;
-      cursor: pointer;
-    }
-
-    .footer-links a:hover {
-      color: #0066cc;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid #333;
-      padding-top: 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 15px;
-    }
-
-    .footer-social a {
-      color: white;
-      font-size: 20px;
-      transition: color 0.3s;
-    }
-
-    .footer-social a:hover {
-      color: #0066cc;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 968px) {
-      .nav-links {
-        position: fixed;
-        right: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: white;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 30px 0;
-      }
-
-      .nav-links.active {
-        right: 0;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .touch {
-        display: none;
-      }
-
-      #home {
-        flex-direction: column-reverse;
-        padding-top: 100px;
-      }
-
-      .hero-content {
-        padding-right: 0;
-        text-align: center;
-      }
-
-      .hero-buttons {
-        justify-content: center;
-      }
-
-      .about-content {
-        flex-direction: column;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-buttons {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .btn-primary,
-      .btn-secondary {
-        width: 100%;
-      }
-
-      .portfolio-filters {
-        gap: 8px;
-      }
-
-      .filter-btn {
-        padding: 8px 15px;
-        font-size: 13px;
-      }
-    }
   </style>
 </head>
-
 <body>
   <header>
     <nav class="main-nav">
@@ -1041,13 +64,11 @@
       </div>
     </nav>
   </header>
-
   <section id="home">
     <div class="hero-content">
       <div class="typing-text">
         <span id="typing"></span>
       </div>
-
       <h1>Turn Your Vision Into<br><span style="color:rgb(0, 102, 204)">Digital Reality</span></h1>
       <p>We craft beautiful mobile apps that engage users and drive business success</p>
       <div class="hero-buttons">
@@ -1056,6 +77,17 @@
         <button class="btn-secondary"
           onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'});">View Our Work</button>
       </div>
+      <a
+  href="https://wa.me/9779811576275"
+  class="whatsapp-float"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+    alt="WhatsApp"
+  />
+</a>
     </div>
     <div class="hero-image">
       <img src="jb.png" alt="JagaByte-Technologies">
@@ -1067,7 +99,7 @@
     </div>
   </section>
 
-  <section id="about">
+  <section id="about"><br>
     <h2 class="section-title">About JagaByte Technologies</h2>
     <p class="section-subtitle">We're a team of passionate developers and designers committed to creating exceptional
       mobile experiences that drive business growth</p>
@@ -1146,7 +178,7 @@
     </div>
   </section>
 
-  <section id="service">
+  <section id="service"><br>
     <h2 class="section-title">Our Services</h2>
     <p class="section-subtitle">We offer end-to-end mobile app development services to bring your ideas to life.</p>
 
@@ -1209,22 +241,22 @@
     </div>
   </section>
 
-  <section id="portfolio">
+  <section id="portfolio"><br>
     <h2 class="section-title">Our Portfolio</h2>
     <p class="section-subtitle">Explore our recent mobile app development projects across various industries.</p>
 
     <div class="portfolio-filters">
-      <button class="filter-btn active">All</button>
-      <button class="filter-btn">Healthcare</button>
-      <button class="filter-btn">Finance</button>
-      <button class="filter-btn">Education</button>
-      <button class="filter-btn">Travel</button>
-      <button class="filter-btn">E-commerce</button>
-      <button class="filter-btn">Fitness</button>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="healthcare">Healthcare</button>
+      <button class="filter-btn" data-filter="finance">Finance</button>
+      <button class="filter-btn" data-filter="education">Education</button>
+      <button class="filter-btn" data-filter="travel">Travel</button>
+      <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+      <button class="filter-btn" data-filter="fitness">Fitness</button>
     </div>
 
     <div class="portfolio-grid">
-      <div class="portfolio-item">
+      <div class="portfolio-item" data-category="education">
         <div class="portfolio-img">
           <img src="csitpaperpro.png" alt="">
         </div>
@@ -1232,11 +264,16 @@
         <div class="portfolio-overlay">
           <h3>CSIT Paper Pro</h3>
           <p>Download now and ace your exams with CSIT Paper Pro!</p>
-          <button>Read More</button>
+          <a href="https://play.google.com/store/apps/details?id=com.jagabyte.oldqna_csit" target="_blank"
+            class="playstore-link" aria-label="Download LuvLines on Google Play">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png"
+              alt="Get it on Google Play" />
+          </a>
         </div>
       </div>
 
-      <div class="portfolio-item">
+      <div class="portfolio-item" data-category="education">
         <div class="portfolio-img">
           <img src="bcapaperpro.png" alt="">
         </div>
@@ -1244,12 +281,20 @@
         <div class="portfolio-overlay">
           <h3>BCA Paper Pro</h3>
           <p>Download now and ace your exams with BCA Paper Pro!</p>
-          <button>Read More</button>
+          <a href="https://play.google.com/store/apps/details?id=com.jagabyte.bca_paper_pro&hl=en" target="_blank"
+            class="playstore-link" aria-label="Download LuvLines on Google Play">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png"
+              alt="Get it on Google Play" />
+          </a>
         </div>
       </div>
+      <p id="no-project" style="display:none; text-align:center; margin-top:30px;">
+  No project found
+</p>
 
 
-      <div class="portfolio-item">
+      <div class="portfolio-item" data-category="fitness">
         <div class="portfolio-img">
           <!-- <svg width="100%" height="250" viewBox="0 0 400 250">...</svg> -->
           <img src="luvlines.png" alt="">
@@ -1258,19 +303,18 @@
         <div class="portfolio-overlay">
           <h3>LuvLines</h3>
           <p>Daily Pick-up Lines & Love Inspiration</p>
-          <button class="playstore_button">
-            <a href="https://play.google.com/store/apps/details?id=com.jagabyte.pickup_lines" target="_blank"
-              aria-label="Get it on Google Play">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png"
-                alt="Get it on Google Play" class="google-play-badge" />
-            </a>
+          <a href="https://play.google.com/store/apps/details?id=com.jagabyte.pickup_lines&hl=en" target="_blank"
+            class="playstore-link" aria-label="Download LuvLines on Google Play">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png"
+              alt="Get it on Google Play" />
+          </a>
 
           </button>
         </div>
       </div>
 
-      <div class="portfolio-item">
+      <div class="portfolio-item" data-category="education">
         <div class="portfolio-img">
           <img src="flutterhandbook.png" alt="">
         </div>
@@ -1278,7 +322,12 @@
         <div class="portfolio-overlay">
           <h3>Flutter Handbook</h3>
           <p>Comprehensive guide to Flutter development and mobile app creation.</p>
-          <button>Read More</button>
+         <a href="https://play.google.com/store/apps/details?id=com.jagabyte.flutter_handbook&hl=en" target="_blank"
+            class="playstore-link" aria-label="Download LuvLines on Google Play">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png"
+              alt="Get it on Google Play" />
+          </a>
         </div>
       </div>
     </div>
@@ -1294,7 +343,7 @@
     </div>
   </section>
 
-  <section id="team">
+  <section id="team"><br>
     <h2 class="section-title">Meet Our Team</h2>
     <p class="section-subtitle">The talented people behind JagaByte's success. Our diverse team brings together
       expertise in design, development, and business strategy.</p>
@@ -1336,7 +385,7 @@
     </div>
   </section>
 
-  <section id="testimonials">
+  <section id="testimonials"><br>
     <h2 class="section-title">What Our Clients Say</h2>
     <p class="section-subtitle">Don't just take our word for it. Here's what our clients have to say about our work.</p>
 
@@ -1391,7 +440,7 @@
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact"><br>
     <h2 class="section-title">Get In Touch</h2>
     <p class="section-subtitle">Have a project in mind? Let's work together to create something amazing.</p>
 
@@ -1503,7 +552,7 @@
         </div>
 
         <div class="footer-section">
-          <h3>Company</h3>
+          <h3 class="company-text">Company</h3>
           <ul class="footer-links">
             <li><a onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'});">About Us</a></li>
             <li><a onclick="document.getElementById('team').scrollIntoView({behavior: 'smooth'});">Our Team</a></li>
@@ -1517,7 +566,7 @@
         <div class="footer-section">
           <h3>Legal</h3>
           <ul class="footer-links">
-            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="privacy_policy.html" target="_blank">Privacy Policy</a></li>
             <li><a href="#">Terms of Service</a></li>
             <li><a href="#">Cookie Policy</a></li>
           </ul>
@@ -1542,7 +591,7 @@
   </footer>
 
   <script>
-    const words = ["Learn.", "Build.", "Innovate."];
+   const words = ["Learn.", "Build.", "Innovate."];
     const typingElement = document.getElementById("typing");
 
     let wordIndex = 0;
@@ -1574,7 +623,6 @@
     }
 
     window.addEventListener("load", typeLoop);
-
 
     // Mobile Navigation Toggle
     const hamburger = document.getElementById('hamburger');
@@ -1640,6 +688,31 @@
         btn.classList.add('active');
       });
     });
+// filteer button script
+const buttons = document.querySelectorAll(".filter-btn");
+const items = document.querySelectorAll(".portfolio-item");
+const noProject = document.getElementById("no-project");
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    buttons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const filter = btn.dataset.filter;
+    let visibleCount = 0;
+
+    items.forEach(item => {
+      if (filter === "all" || item.dataset.category === filter) {
+        item.style.display = "block";
+        visibleCount++;
+      } else {
+        item.style.display = "none";
+      }
+    });
+
+    noProject.style.display = visibleCount === 0 ? "block" : "none";
+  });
+});
   </script>
 </body>
 
