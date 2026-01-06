@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +27,7 @@
       width: 100%;
       background-color: white;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     .main-nav {
@@ -44,6 +45,37 @@
       gap: 5px;
       font-size: clamp(20px, 3vw, 28px);
     }
+
+    /* Typing Animation Text */
+    .typing-text {
+      font-size: clamp(14px, 1.8vw, 34px);
+      font-weight: 600;
+      color: #0066cc;
+      margin-bottom: 10px;
+      min-height: 24px;
+      letter-spacing: 1px;
+    }
+
+    .typing-text span::after {
+      content: '|';
+      margin-left: 4px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      50%,
+      100% {
+        opacity: 1;
+      }
+
+      25%,
+      75% {
+        opacity: 0;
+      }
+    }
+
 
     .branding h1 {
       margin: 0;
@@ -231,8 +263,6 @@
 
     .about-image img {
       width: 100%;
-      /* border-radius: 15px; */
-      /* box-shadow: 0 10px 30px rgba(0,0,0,0.1); */
     }
 
     .about-text {
@@ -285,7 +315,7 @@
       padding: 30px;
       border-radius: 10px;
       text-align: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s;
     }
 
@@ -322,14 +352,14 @@
       background: white;
       padding: 40px 30px;
       border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s, box-shadow 0.3s;
       border: 1px solid #f0f0f0;
     }
 
     .service-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
     }
 
     .service-card svg {
@@ -410,7 +440,8 @@
       font-size: 15px;
     }
 
-    .filter-btn:hover, .filter-btn.active {
+    .filter-btn:hover,
+    .filter-btn.active {
       background: #0066cc;
       color: white;
     }
@@ -423,17 +454,99 @@
       margin: 0 auto 40px;
     }
 
-    .portfolio-item {
+    /* .portfolio-item {
       background: white;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s;
     }
 
     .portfolio-item:hover {
       transform: translateY(-10px);
+    } */
+
+    /* ===== Portfolio Hover Effect ===== */
+
+    .portfolio-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
     }
+
+    /* Image wrapper */
+    .portfolio-img {
+      width: 100%;
+      height: 250px;
+    }
+
+    .portfolio-img svg,
+    .portfolio-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    /* Overlay */
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+          rgba(0, 0, 0, 0.85),
+          rgba(0, 0, 0, 0.2));
+      color: white;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
+    }
+
+    /* Text */
+    .portfolio-overlay h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-overlay p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
+
+    /* Button */
+    .portfolio-overlay button {
+      width: fit-content;
+      background: white;
+      color: #0066cc;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .portfolio-overlay button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Hover Effects */
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .portfolio-item:hover .portfolio-img svg,
+    .portfolio-item:hover .portfolio-img img {
+      transform: scale(1.1);
+    }
+
 
     .portfolio-item img {
       width: 100%;
@@ -478,7 +591,7 @@
       padding: 40px 30px;
       border-radius: 15px;
       text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s;
     }
 
@@ -537,7 +650,7 @@
       background: white;
       padding: 40px;
       border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
       display: none;
       opacity: 0;
       transition: opacity 0.5s;
@@ -651,7 +764,7 @@
       background: white;
       padding: 40px;
       border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     }
 
     .contact-form h2 {
@@ -819,7 +932,7 @@
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         padding: 30px 0;
       }
 
@@ -865,7 +978,8 @@
         width: 100%;
       }
 
-      .btn-primary, .btn-secondary {
+      .btn-primary,
+      .btn-secondary {
         width: 100%;
       }
 
@@ -880,6 +994,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav class="main-nav">
@@ -909,11 +1024,17 @@
 
   <section id="home">
     <div class="hero-content">
+      <div class="typing-text">
+        <span id="typing"></span>
+      </div>
+
       <h1>Turn Your Vision Into<br><span style="color:rgb(0, 102, 204)">Digital Reality</span></h1>
       <p>We craft beautiful mobile apps that engage users and drive business success</p>
       <div class="hero-buttons">
-        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Send Inquiry</button>
-        <button class="btn-secondary" onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'});">View Our Work</button>
+        <button class="btn-primary"
+          onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Send Inquiry</button>
+        <button class="btn-secondary"
+          onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'});">View Our Work</button>
       </div>
     </div>
     <div class="hero-image">
@@ -928,22 +1049,26 @@
 
   <section id="about">
     <h2 class="section-title">About JagaByte Technologies</h2>
-    <p class="section-subtitle">We're a team of passionate developers and designers committed to creating exceptional mobile experiences that drive business growth</p>
-    
+    <p class="section-subtitle">We're a team of passionate developers and designers committed to creating exceptional
+      mobile experiences that drive business growth</p>
+
     <div class="about-content">
       <div class="about-image">
         <img src="/about_jagabyte.png" alt="">
       </div>
       <div class="about-text">
         <h2 style="font-size: 36px; margin-bottom: 20px;">Crafting Digital Experiences Since 2023</h2>
-        <p style="color: #666; line-height: 1.8; font-size: 18px;">We specialize in transforming innovative ideas into powerful mobile applications. Our team combines technical expertise with creative design to deliver solutions that exceed expectations.</p>
+        <p style="color: #666; line-height: 1.8; font-size: 18px;">We specialize in transforming innovative ideas into
+          powerful mobile applications. Our team combines technical expertise with creative design to deliver solutions
+          that exceed expectations.</p>
       </div>
     </div>
 
     <div class="feature-grid">
       <div class="feature-item">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
         <div>
           <h3>User-Centered Approach</h3>
@@ -952,7 +1077,8 @@
       </div>
       <div class="feature-item">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
         </svg>
         <div>
           <h3>Quality Craftsmanship</h3>
@@ -961,7 +1087,8 @@
       </div>
       <div class="feature-item">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
         <div>
           <h3>Collaborative Process</h3>
@@ -1002,46 +1129,52 @@
   <section id="service">
     <h2 class="section-title">Our Services</h2>
     <p class="section-subtitle">We offer end-to-end mobile app development services to bring your ideas to life.</p>
-    
+
     <div class="services-grid">
       <div class="service-card">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
         </svg>
         <h3>Mobile App Development</h3>
         <p>Native and cross-platform mobile applications with beautiful UI and seamless user experience.</p>
       </div>
       <div class="service-card">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
         </svg>
         <h3>UI/UX Design</h3>
         <p>User-centered design solutions that combine aesthetics with functionality to delight your users.</p>
       </div>
       <div class="service-card">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
         </svg>
         <h3>Web Development</h3>
         <p>Responsive, high-performance web applications that work seamlessly across all devices.</p>
       </div>
       <div class="service-card">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
         <h3>Quality Assurance</h3>
         <p>Rigorous testing methodologies to ensure your applications are robust, secure, and bug-free.</p>
       </div>
       <div class="service-card">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
         </svg>
         <h3>Backend Development</h3>
         <p>Scalable and secure backend solutions that power your mobile and web applications.</p>
       </div>
       <div class="service-card">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
         </svg>
         <h3>Analytics & Optimization</h3>
         <p>Data-driven insights and continuous improvement to maximize your app's performance.</p>
@@ -1051,14 +1184,15 @@
     <div class="cta-box">
       <h2>Ready to Start Your Project?</h2>
       <p>Let's discuss how we can help you achieve your business goals with a custom mobile application.</p>
-      <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Schedule a Consultation</button>
+      <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Schedule a
+        Consultation</button>
     </div>
   </section>
 
   <section id="portfolio">
     <h2 class="section-title">Our Portfolio</h2>
     <p class="section-subtitle">Explore our recent mobile app development projects across various industries.</p>
-    
+
     <div class="portfolio-filters">
       <button class="filter-btn active">All</button>
       <button class="filter-btn">Healthcare</button>
@@ -1071,71 +1205,52 @@
 
     <div class="portfolio-grid">
       <div class="portfolio-item">
-        <svg width="100%" height="250" viewBox="0 0 400 250">
-          <rect width="400" height="250" fill="#e8f4f8"/>
-          <circle cx="200" cy="125" r="50" fill="#0066cc" opacity="0.2"/>
-          <path d="M150 125 L175 150 L225 100" stroke="#0066cc" stroke-width="8" fill="none"/>
-        </svg>
-        <div class="portfolio-info">
-          <h3>HealthTrack Pro</h3>
-          <span class="portfolio-tag">Healthcare</span>
+        <div class="portfolio-img">
+          <img src="/csitpaperpro.png" alt="">
+        </div>
+
+        <div class="portfolio-overlay">
+          <h3>CSIT Paper Pro</h3>
+          <p>Download now and ace your exams with CSIT Paper Pro!</p>
+          <button>Read More</button>
         </div>
       </div>
+
       <div class="portfolio-item">
-        <svg width="100%" height="250" viewBox="0 0 400 250">
-          <rect width="400" height="250" fill="#f0f8e8"/>
-          <rect x="150" y="75" width="100" height="100" fill="#0066cc" opacity="0.2"/>
-          <path d="M180 100 L220 140 M220 100 L180 140" stroke="#0066cc" stroke-width="8"/>
-        </svg>
-        <div class="portfolio-info">
-          <h3>FinSync</h3>
-          <span class="portfolio-tag">Finance</span>
+        <div class="portfolio-img">
+          <img src="/bcapaperpro.png" alt="">
+        </div>
+
+        <div class="portfolio-overlay">
+          <h3>BCA Paper Pro</h3>
+          <p>Download now and ace your exams with BCA Paper Pro!</p>
+          <button>Read More</button>
         </div>
       </div>
+
+
       <div class="portfolio-item">
-        <svg width="100%" height="250" viewBox="0 0 400 250">
-          <rect width="400" height="250" fill="#f8e8f0"/>
-          <circle cx="150" cy="125" r="40" fill="#0066cc" opacity="0.2"/>
-          <circle cx="250" cy="125" r="40" fill="#0066cc" opacity="0.3"/>
-          <rect x="180" y="100" width="40" height="50" fill="#0066cc" opacity="0.2"/>
-        </svg>
-        <div class="portfolio-info">
-          <h3>EduLearn</h3>
-          <span class="portfolio-tag">Education</span>
+        <div class="portfolio-img">
+          <!-- <svg width="100%" height="250" viewBox="0 0 400 250">...</svg> -->
+          <img src="/luvlines.png" alt="">
+        </div>
+
+        <div class="portfolio-overlay">
+          <h3>LuvLines</h3>
+          <p>Daily Pick-up Lines & Love Inspiration</p>
+          <button>Read More</button>
         </div>
       </div>
+
       <div class="portfolio-item">
-        <svg width="100%" height="250" viewBox="0 0 400 250">
-          <rect width="400" height="250" fill="#e8f0f8"/>
-          <path d="M150 150 Q200 80 250 150" stroke="#0066cc" stroke-width="6" fill="none"/>
-          <circle cx="150" cy="150" r="10" fill="#0066cc"/>
-          <circle cx="250" cy="150" r="10" fill="#0066cc"/>
-        </svg>
-        <div class="portfolio-info">
-          <h3>TravelCompanion</h3>
-          <span class="portfolio-tag">Travel</span>
+        <div class="portfolio-img">
+          <img src="/flutterhandbook.png" alt="">
         </div>
-      </div>
-      <div class="portfolio-item">
-        <svg width="100%" height="250" viewBox="0 0 400 250">
-          <rect width="400" height="250" fill="#f8f0e8"/>
-          <rect x="150" y="80" width="100" height="90" fill="#0066cc" opacity="0.2"/>
-          <circle cx="200" cy="125" r="30" fill="#0066cc" opacity="0.3"/>
-        </svg>
-        <div class="portfolio-info">
-          <h3>ShopEase</h3>
-          <span class="portfolio-tag">E-commerce</span>
-        </div>
-      </div>
-      <div class="portfolio-item">
-        <svg width="100%" height="250" viewBox="0 0 400 250">
-          <rect width="400" height="250" fill="#e8f8f0"/>
-          <path d="M180 150 L200 110 L220 150" stroke="#0066cc" stroke-width="8" fill="none"/>
-          <circle cx="200" cy="90" r="15" fill="#0066cc"/>
-        </svg>
-        <div class="portfolio-info">
-          <h3>FitConnect</h3>
-          <span class="portfolio-tag">Fitness</span>
+
+        <div class="portfolio-overlay">
+          <h3>Flutter Handbook</h3>
+          <p>Comprehensive guide to Flutter development and mobile app creation.</p>
+          <button>Read More</button>
         </div>
       </div>
     </div>
@@ -1143,7 +1258,8 @@
     <div style="text-align: center; margin-top: 40px;">
       <button class="btn-secondary" style="padding: 15px 40px;">
         View All Projects
-        <svg style="display: inline; width: 20px; height: 20px; margin-left: 8px; vertical-align: middle;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg style="display: inline; width: 20px; height: 20px; margin-left: 8px; vertical-align: middle;" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>
       </button>
@@ -1152,8 +1268,9 @@
 
   <section id="team">
     <h2 class="section-title">Meet Our Team</h2>
-    <p class="section-subtitle">The talented people behind JagaByte's success. Our diverse team brings together expertise in design, development, and business strategy.</p>
-    
+    <p class="section-subtitle">The talented people behind JagaByte's success. Our diverse team brings together
+      expertise in design, development, and business strategy.</p>
+
     <div class="team-grid">
       <div class="team-card">
         <img src="jagadishdai.png" alt="founder">
@@ -1163,7 +1280,8 @@
           <a href="https://www.facebook.com/jagadishpoudel974" target="_blank"><i class="fa-brands fa-facebook"></i></a>
           <a href="https://youtube.com/@codingwithjagadish" target="_blank"><i class="fa-brands fa-youtube"></i></a>
           <a href="https://instagram.com/jagadish_poudel" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/jagadish-poudel-705073217" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/jagadish-poudel-705073217" target="_blank"><i
+              class="fa-brands fa-linkedin-in"></i></a>
           <a href="https://www.tiktok.com/@jagadish.code" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
         </div>
       </div>
@@ -1175,7 +1293,8 @@
           <a href="https://www.facebook.com/share/16JAGw58pz/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
           <a href="https://youtube.com/@aadityabelbase3617" target="_blank"><i class="fa-brands fa-youtube"></i></a>
           <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/aaditya-belbase-aa8768304" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/aaditya-belbase-aa8768304" target="_blank"><i
+              class="fa-brands fa-linkedin-in"></i></a>
           <a href="https://www.tiktok.com/@aadityabelbase14" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
         </div>
       </div>
@@ -1183,7 +1302,8 @@
 
     <div style="text-align: center; margin-top: 60px;">
       <h2 style="font-size: 36px; margin-bottom: 15px;">Interested in Joining Our Team?</h2>
-      <p style="color: #666; font-size: 18px; margin-bottom: 30px;">We're always looking for talented individuals who are passionate about creating exceptional mobile experiences.</p>
+      <p style="color: #666; font-size: 18px; margin-bottom: 30px;">We're always looking for talented individuals who
+        are passionate about creating exceptional mobile experiences.</p>
       <button class="btn-secondary" style="padding: 15px 40px;">View Career Opportunities</button>
     </div>
   </section>
@@ -1191,49 +1311,53 @@
   <section id="testimonials">
     <h2 class="section-title">What Our Clients Say</h2>
     <p class="section-subtitle">Don't just take our word for it. Here's what our clients have to say about our work.</p>
-    
+
     <div class="testimonial-container">
       <div class="testimonial-card active">
         <div class="testimonial-header">
           <svg width="80" height="80" viewBox="0 0 80 80">
-            <circle cx="40" cy="40" r="40" fill="#e8f0f8"/>
-            <circle cx="40" cy="32" r="12" fill="#0066cc" opacity="0.3"/>
-            <path d="M20 65 Q40 55 60 65" fill="#0066cc" opacity="0.3"/>
+            <circle cx="40" cy="40" r="40" fill="#e8f0f8" />
+            <circle cx="40" cy="32" r="12" fill="#0066cc" opacity="0.3" />
+            <path d="M20 65 Q40 55 60 65" fill="#0066cc" opacity="0.3" />
           </svg>
           <div class="testimonial-info">
             <h3>Shiva Poudel</h3>
             <p>Software Engineer</p>
           </div>
         </div>
-        <p class="testimonial-text">"JagaByte's team took our app concept and turned it into a stunning, feature-rich application. Their innovative approach and technical proficiency were impressive. The app has received excellent user feedback and has been crucial to our business growth."</p>
+        <p class="testimonial-text">"JagaByte's team took our app concept and turned it into a stunning, feature-rich
+          application. Their innovative approach and technical proficiency were impressive. The app has received
+          excellent user feedback and has been crucial to our business growth."</p>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-header">
           <svg width="80" height="80" viewBox="0 0 80 80">
-            <circle cx="40" cy="40" r="40" fill="#f0e8f8"/>
-            <circle cx="40" cy="32" r="12" fill="#0066cc" opacity="0.3"/>
-            <path d="M20 65 Q40 55 60 65" fill="#0066cc" opacity="0.3"/>
+            <circle cx="40" cy="40" r="40" fill="#f0e8f8" />
+            <circle cx="40" cy="32" r="12" fill="#0066cc" opacity="0.3" />
+            <path d="M20 65 Q40 55 60 65" fill="#0066cc" opacity="0.3" />
           </svg>
           <div class="testimonial-info">
             <h3>Prince Yadav</h3>
             <p>UX Designer</p>
           </div>
         </div>
-        <p class="testimonial-text">"Excellent customer support and user interface. The team was responsive to all our needs and delivered beyond expectations. 10/10 would recommend!"</p>
+        <p class="testimonial-text">"Excellent customer support and user interface. The team was responsive to all our
+          needs and delivered beyond expectations. 10/10 would recommend!"</p>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-header">
           <svg width="80" height="80" viewBox="0 0 80 80">
-            <circle cx="40" cy="40" r="40" fill="#e8f8f0"/>
-            <circle cx="40" cy="32" r="12" fill="#0066cc" opacity="0.3"/>
-            <path d="M20 65 Q40 55 60 65" fill="#0066cc" opacity="0.3"/>
+            <circle cx="40" cy="40" r="40" fill="#e8f8f0" />
+            <circle cx="40" cy="32" r="12" fill="#0066cc" opacity="0.3" />
+            <path d="M20 65 Q40 55 60 65" fill="#0066cc" opacity="0.3" />
           </svg>
           <div class="testimonial-info">
             <h3>Sybum Shah</h3>
             <p>Project Manager</p>
           </div>
         </div>
-        <p class="testimonial-text">"Reliable, fast, and visually beautiful. They have a really talented team for app and web development. Great experience working with them."</p>
+        <p class="testimonial-text">"Reliable, fast, and visually beautiful. They have a really talented team for app
+          and web development. Great experience working with them."</p>
       </div>
       <div class="testimonial-dots" id="testimonialDots"></div>
     </div>
@@ -1242,13 +1366,14 @@
   <section id="contact">
     <h2 class="section-title">Get In Touch</h2>
     <p class="section-subtitle">Have a project in mind? Let's work together to create something amazing.</p>
-    
+
     <div class="contact-wrapper">
       <div class="contact-info">
         <h2>Contact Information</h2>
         <div class="contact-item">
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
           </svg>
           <div class="contact-item-text">
             <h4>Phone</h4>
@@ -1257,7 +1382,8 @@
         </div>
         <div class="contact-item">
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
           </svg>
           <div class="contact-item-text">
             <h4>Email</h4>
@@ -1266,8 +1392,10 @@
         </div>
         <div class="contact-item">
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
           <div class="contact-item-text">
             <h4>Location</h4>
@@ -1308,24 +1436,29 @@
       <div class="footer-top">
         <div class="footer-brand">
           <h2>
-            <span style="color: rgb(196, 192, 192);">Jaga</span><span style="color: rgb(0, 102, 204);">Byte</span> <span style="color: white;">Technologies</span>
+            <span style="color: rgb(196, 192, 192);">Jaga</span><span style="color: rgb(0, 102, 204);">Byte</span> <span
+              style="color: white;">Technologies</span>
           </h2>
-          <p>We're a forward-thinking mobile app development company focused on creating exceptional digital experiences that transform businesses.</p>
+          <p>We're a forward-thinking mobile app development company focused on creating exceptional digital experiences
+            that transform businesses.</p>
           <div class="footer-contact">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             </svg>
             <p>Kathmandu, Nepal</p>
           </div>
           <div class="footer-contact">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
             <p>+977 981-1576275</p>
           </div>
           <div class="footer-contact">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
             <p>jagabyte.technologies@gmail.com</p>
           </div>
@@ -1346,8 +1479,10 @@
           <ul class="footer-links">
             <li><a onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'});">About Us</a></li>
             <li><a onclick="document.getElementById('team').scrollIntoView({behavior: 'smooth'});">Our Team</a></li>
-            <li><a onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'});">Our Work</a></li>
-            <li><a onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Contact Us</a></li>
+            <li><a onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'});">Our Work</a>
+            </li>
+            <li><a onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Contact Us</a>
+            </li>
           </ul>
         </div>
 
@@ -1364,17 +1499,55 @@
       <div class="footer-bottom">
         <p>&copy; 2026 JagaByte Technologies. All rights reserved.</p>
         <div class="footer-social">
-          <a href="https://www.facebook.com/profile.php?id=100094216609843" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=100094216609843" target="_blank"><i
+              class="fa-brands fa-facebook"></i></a>
           <a href="https://github.com/JagaByte-Technologies" target="_blank"><i class="fa-brands fa-github"></i></a>
-          <a href="https://www.instagram.com/jagabyte_technologies" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/jagadish-poudel-705073217" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://www.tiktok.com/@jagabyte_technologies" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/jagabyte_technologies" target="_blank"><i
+              class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/jagadish-poudel-705073217" target="_blank"><i
+              class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.tiktok.com/@jagabyte_technologies" target="_blank"><i
+              class="fa-brands fa-tiktok"></i></a>
         </div>
       </div>
     </div>
   </footer>
 
   <script>
+    const words = ["Learn.", "Build.", "Innovate."];
+    const typingElement = document.getElementById("typing");
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeLoop() {
+      const currentWord = words[wordIndex];
+
+      if (!isDeleting) {
+        typingElement.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentWord.length) {
+          setTimeout(() => isDeleting = true, 1200);
+        }
+      } else {
+        typingElement.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+        }
+      }
+
+      const speed = isDeleting ? 60 : 100;
+      setTimeout(typeLoop, speed);
+    }
+
+    window.addEventListener("load", typeLoop);
+
+
     // Mobile Navigation Toggle
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
@@ -1441,4 +1614,5 @@
     });
   </script>
 </body>
+
 </html>
