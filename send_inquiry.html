@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Inquiry - JagaByte Technologies</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #e8f0f8 100%);
+      color: #1a1a1a;
+      overflow-x: hidden;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 6%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .branding {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .branding:hover {
+      transform: scale(1.05);
+    }
+
+    .branding h1 {
+      margin: 0;
+    }
+
+    .back-home {
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      color: white;
+      border: none;
+      padding: 13px 28px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .back-home:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 102, 204, 0.3);
+    }
+
+    /* Hero Section */
+    .inquiry-hero {
+      padding: 140px 6% 60px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .inquiry-hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 800;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .inquiry-hero p {
+      font-size: clamp(17px, 2vw, 21px);
+      color: #64748b;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto 60px;
+      padding: 0 6%;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-item i {
+      font-size: 32px;
+      color: #0066cc;
+      margin-bottom: 10px;
+    }
+
+    .stat-item h3 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0066cc;
+      margin-bottom: 5px;
+    }
+
+    .stat-item p {
+      font-size: 14px;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    /* Form Section */
+    .inquiry-form-section {
+      padding: 60px 6% 100px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .form-container {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 50px;
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Info Sidebar */
+    .inquiry-info {
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      padding: 50px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .inquiry-info::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .inquiry-info h2 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .inquiry-info p {
+      font-size: 16px;
+      line-height: 1.8;
+      opacity: 0.95;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .info-item i {
+      font-size: 24px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .info-item div h4 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .info-item div p {
+      font-size: 15px;
+      opacity: 0.95;
+      margin: 0;
+    }
+
+    .process-steps {
+      margin-top: 50px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .process-steps h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .step-number {
+      width: 35px;
+      height: 35px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .step p {
+      font-size: 15px;
+      margin: 0;
+      opacity: 0.95;
+    }
+
+    /* Form Content */
+    .form-content {
+      padding: 50px;
+    }
+
+    .form-content h2 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 15px;
+      color: #1a1a1a;
+    }
+
+    .form-content > p {
+      font-size: 16px;
+      color: #64748b;
+      margin-bottom: 35px;
+      line-height: 1.7;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .form-group label span {
+      color: #ef4444;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      background: white;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #0066cc;
+      box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .budget-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .budget-option {
+      position: relative;
+    }
+
+    .budget-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .budget-option label {
+      display: block;
+      padding: 14px 20px;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .budget-option input[type="radio"]:checked + label {
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      color: white;
+      border-color: #0066cc;
+    }
+
+    .budget-option label:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .checkbox-group label {
+      margin: 0;
+      font-size: 14px;
+      color: #64748b;
+      font-weight: 400;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      color: white;
+      border: none;
+      padding: 17px 50px;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 102, 204, 0.25);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0, 102, 204, 0.35);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      background: #10b981;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      animation: slideDown 0.5s ease-out;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .form-container {
+        grid-template-columns: 1fr;
+      }
+
+      .inquiry-info {
+        padding: 40px 30px;
+      }
+
+      .form-content {
+        padding: 40px 30px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .budget-options {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .inquiry-hero {
+        padding: 120px 6% 40px;
+      }
+
+      .stats-bar {
+        grid-template-columns: 1fr;
+      }
+
+      .inquiry-info,
+      .form-content {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="main-nav">
+      <div class="branding" onclick="window.location.href='index.html'">
+        <h1 style="color: rgb(196, 192, 192);">Jaga</h1>
+        <h1 style="color: rgb(0, 102, 204);">Byte</h1>
+      </div>
+      <a href="index.html" class="back-home">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+    </nav>
+  </header>
+
+  <section class="inquiry-hero">
+    <h1>Let's Build Something Amazing Together</h1>
+    <p>Share your project details with us, and we'll get back to you within 24 hours with a customized proposal and timeline.</p>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stat-item">
+      <i class="fas fa-clock"></i>
+      <h3>24hrs</h3>
+      <p>Response Time</p>
+    </div>
+    <div class="stat-item">
+      <i class="fas fa-handshake"></i>
+      <h3>100%</h3>
+      <p>Confidential</p>
+    </div>
+    <div class="stat-item">
+      <i class="fas fa-star"></i>
+      <h3>5+</h3>
+      <p>Projects Delivered</p>
+    </div>
+    <div class="stat-item">
+      <i class="fas fa-users"></i>
+      <h3>97%</h3>
+      <p>Client Satisfaction</p>
+    </div>
+  </div>
+
+  <section class="inquiry-form-section">
+    <div class="form-container">
+      <div class="inquiry-info">
+        <h2>Why Choose JagaByte?</h2>
+        <p>We're committed to delivering exceptional mobile and web solutions that drive real business results.</p>
+
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h4>Email Us</h4>
+            <p>jagabyte.technologies@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <h4>Call Us</h4>
+            <p>+977 981-1576275</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h4>Visit Us</h4>
+            <p>Kathmandu, Nepal</p>
+          </div>
+        </div>
+
+        <div class="process-steps">
+          <h3>Our Process</h3>
+          <div class="step">
+            <div class="step-number">1</div>
+            <p>Submit your inquiry with project details</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <p>We review and schedule a consultation</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <p>Receive a customized proposal & timeline</p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <p>Start building your dream project</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-content">
+        <div class="success-message" id="successMessage">
+          <i class="fas fa-check-circle"></i> Thank you! Your inquiry has been submitted successfully. We'll get back to you within 24 hours.
+        </div>
+
+        <h2>Send Your Inquiry</h2>
+        <p>Fill out the form below and we'll respond within 24 hours.</p>
+
+        <form id="inquiryForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name <span>*</span></label>
+              <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name <span>*</span></label>
+              <input type="text" id="lastName" name="lastName" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address <span>*</span></label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number <span>*</span></label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company Name (Optional)</label>
+            <input type="text" id="company" name="company">
+          </div>
+
+          <div class="form-group">
+            <label for="projectType">Project Type <span>*</span></label>
+            <select id="projectType" name="projectType" required>
+              <option value="">Select a project type</option>
+              <option value="mobile-app">Mobile App Development</option>
+              <option value="web-development">Web Development</option>
+              <option value="ui-ux">UI/UX Design</option>
+              <option value="backend">Backend Development</option>
+              <option value="full-stack">Full Stack Solution</option>
+              <option value="maintenance">App Maintenance & Support</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Project Budget <span>*</span></label>
+            <div class="budget-options">
+              <div class="budget-option">
+                <input type="radio" id="budget1" name="budget" value="<$5000" required>
+                <label for="budget1">< $5,000</label>
+              </div>
+              <div class="budget-option">
+                <input type="radio" id="budget2" name="budget" value="$5000-$10000">
+                <label for="budget2">$5,000 - $10,000</label>
+              </div>
+              <div class="budget-option">
+                <input type="radio" id="budget3" name="budget" value="$10000-$25000">
+                <label for="budget3">$10,000 - $25,000</label>
+              </div>
+              <div class="budget-option">
+                <input type="radio" id="budget4" name="budget" value="$25000+">
+                <label for="budget4">$25,000+</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="timeline">Preferred Timeline <span>*</span></label>
+            <select id="timeline" name="timeline" required>
+              <option value="">Select timeline</option>
+              <option value="asap">As soon as possible</option>
+              <option value="1-2months">1-2 months</option>
+              <option value="3-6months">3-6 months</option>
+              <option value="6+months">6+ months</option>
+              <option value="flexible">Flexible</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="projectDetails">Project Details <span>*</span></label>
+            <textarea id="projectDetails" name="projectDetails" placeholder="Tell us about your project, goals, target audience, and any specific requirements..." required></textarea>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="newsletter" name="newsletter">
+            <label for="newsletter">I'd like to receive updates and newsletters from JagaByte Technologies</label>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('inquiryForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Show success message
+      successMessage.classList.add('show');
+      
+      // Reset form
+      form.reset();
+      
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        successMessage.classList.remove('show');
+      }, 5000);
+    });
+
+    // Add animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.stat-item, .form-container').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'all 0.6s ease-out';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
